@@ -3,11 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="js/script.js"></script>
     <title>[HelpDesk]</title>
 </head>
-<body>
-    
+<body class="bg-gray-300 m-0 p-0">
+    <header class="bg-white p-6 flex justify-between items-center">
+        <div class="flex justify-around gap-2">
+            <p class="bg-[#202A38] w-8 h-8 rounded-xl text-white flex justify-center items-center font-bold text-2xl">H</p>
+            <p class="text-2xl">HelpDesk</p>
+        </div>
+        <nav id="menu-nav" class="hidden md:flex lg:flex">
+            <a href="index.html">Atlas Solutions / Support</a>
+        </nav>
+        <button id="icon-btn" class="md:hidden lg:hidden text-3xl">&#9776;</button>
+    </header>
+    <main class="m-6">
+        <h1 class="text-2xl mb-4">Gestion des demandes</h1>
+        <p class="text-[#8792A1] mb-6">
+            Suivez et gérez les incidents informatiques.
+        </p>
+        <section class="bg-white p-3 rounded-xl pt-6">
+            <h2 class="font-bold text-2xl text-[#202A38]">Créer une demande</h2>
+            <p class="text-[#8792A1] mb-4">Décrivez votre problème informatique.</p>
+            <form class="grid grid-cols-1 gap-3.5  md:grid-cols-2">
+                <label class="grid grid-cols-1 gap-2">
+                    <p class="text-xl">Titre du problème *</p>
+                    <input  type="text" name="titre" placeholder="Connexion Wi-Fi instable" required 
+                    class="border-2 border-[#8792A1] border-solid rounded-xl h-10 p-4">
+                </label>
+                <label class="grid grid-cols-1 gap-2">
+                    <p class="text-xl">Catégorie *</p>
+                    <select id="categorie-choix" name="categorie" class="border-2 border-[#8792A1] border-solid rounded-xl h-10 pl-4">
+                        <option value="" disabled selected>Choisissez un seul choix.</option>
+                        <option value="reseaux">Resaux</option>
+                        <option value="materiel">Matériel</option>
+                        <option value="logiciel">Logiciel</option>
+                    </select>
+                </label>
+                <label class="grid grid-cols-1 gap-2">
+                    <p class="text-xl">Priorité *</p>
+                    <select name="categorie" class="border-2 border-[#8792A1] border-solid rounded-xl h-10 pl-4">
+                        <option value="" disabled selected>Choisissez un seul choix.</option>
+                        <option value="haute">Haute</option>
+                        <option value="normale">Normale</option>
+                        <option value="basse">Basse</option>
+                    </select>
+                </label>
+                <label class="grid grid-cols-1 gap-2">
+                    <p class="text-xl">Description *</p>
+                    <input type="text" name="titre" placeholder="Décrivez votre problème... " required class="border-2 border-[#8792A1] border-solid rounded-xl h-14 pl-4 ">
+                </label>
+                <button class="bg-[#252F3E] text-white font-bold border-solid rounded-xl h-10 px-4">＋  Ajouter la demande</button>
+            </form>
+        </section>
+        <section>
+            <div class="flex justify-between items-center pt-8">
+                <h2 class="text-2xl text-[#202A38]">Liste des demandes</h2>
+                <p id="nombre-demande" class="bg-[#EBEFF4] rounded-2xl p-1">
+                    3 demandes
+                </p>
+            </div>
+            <div id="cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div id="card" class="bg-white p-3 rounded-xl mt-4 pt-4">
+                    <div class="flex justify-between">
+                        <p class="bg-[#EAF0F9] text-3xl w-9 h-9 rounded-xl flex justify-center items-center" id="icon1">⌁</p>
+                        <p id="demande-index">HD-001</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mt-4">Connexion Wi-Fi instable</h3>
+                        <p class="text-[#8792A1] mb-6">Le réseau se déconnecte régulièrement.</p>
+                        <div class="grid grid-cols-2 mt-3.5 mb-3.5">
+                            <p class="flex justify-center items-center text-[#64748B] bg-[#F0F3F7] w-fit p-3 rounded-2xl">Réseau</p>
+                            <p class="flex justify-center items-center text-[#BA6444] bg-[#FFF0E8] w-fit p-3 rounded-2xl">Haute</p>
+                        </div>
+                        <div class="w-full h-0.5 border-2 border-[#EDF0F3]">
+                        </div>
+                        <div class="flex justify-end gap-6 mt-4 mb-2">
+                            <button id="modifier" class="text-[#617084] bg-transparent font-bold">✎ Modifier</button>
+                            <button id="supprimer" class="text-[#CC626A] bg-transparent font-bold">♜ Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="card" class="bg-white p-3 rounded-xl mt-4 pt-4">
+                    <div class="flex justify-between">
+                        <p class="bg-[#EAF0F9] text-3xl w-9 h-9 rounded-xl flex justify-center items-center" id="icon1">⌁</p>
+                        <p id="demande-index">HD-001</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mt-4">Connexion Wi-Fi instable</h3>
+                        <p class="text-[#8792A1] mb-6">Le réseau se déconnecte régulièrement.</p>
+                        <div class="grid grid-cols-2 mt-3.5 mb-3.5">
+                            <p class="flex justify-center items-center text-[#64748B] bg-[#F0F3F7] w-fit p-3 rounded-2xl">Réseau</p>
+                            <p class="flex justify-center items-center text-[#BA6444] bg-[#FFF0E8] w-fit p-3 rounded-2xl">Haute</p>
+                        </div>
+                        <div class="w-full h-0.5 border-2 border-[#EDF0F3]">
+                        </div>
+                        <div class="flex justify-end gap-6 mt-4 mb-2">
+                            <button id="modifier" class="text-[#617084] bg-transparent font-bold">✎ Modifier</button>
+                            <button id="supprimer" class="text-[#CC626A] bg-transparent font-bold">♜ Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="card" class="bg-white p-3 rounded-xl mt-4 pt-4">
+                    <div class="flex justify-between">
+                        <p class="bg-[#EAF0F9] text-3xl w-9 h-9 rounded-xl flex justify-center items-center" id="icon1">⌁</p>
+                        <p id="demande-index">HD-001</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mt-4">Connexion Wi-Fi instable</h3>
+                        <p class="text-[#8792A1] mb-6">Le réseau se déconnecte régulièrement.</p>
+                        <div class="grid grid-cols-2 mt-3.5 mb-3.5">
+                            <p class="flex justify-center items-center text-[#64748B] bg-[#F0F3F7] w-fit p-3 rounded-2xl">Réseau</p>
+                            <p class="flex justify-center items-center text-[#BA6444] bg-[#FFF0E8] w-fit p-3 rounded-2xl">Haute</p>
+                        </div>
+                        <div class="w-full h-0.5 border-2 border-[#EDF0F3]">
+                        </div>
+                        <div class="flex justify-end gap-6 mt-4 mb-2">
+                            <button id="modifier" class="text-[#617084] bg-transparent font-bold">✎ Modifier</button>
+                            <button id="supprimer" class="text-[#CC626A] bg-transparent font-bold">♜ Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
 </body>
 </html>
