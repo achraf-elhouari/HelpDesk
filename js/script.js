@@ -7,12 +7,21 @@ const cardList = document.getElementById('cards');
 const formulaire = document.getElementById('formulaire');
 const formMessage = document.getElementById('form-message');
 const demandeTotal = document.getElementById('nombre-demande');
-let demandeList = {};
-let index = 1;
+let index = 0;
 
 function cardIndexing(){
     return index++;
 }
+
+const demandeCard = {
+    id: demandeList.length,
+    probleme: titreProbleme.value,
+    categorie: problemeCategorie.value,
+    propriete: proprieteCategorie.value,
+    description: problemeDescription.value
+}
+demandeList.push(demandeCard)
+    
 
 function demandeLength(){
     const total = cardList.children.length;
@@ -43,7 +52,7 @@ function addCards(demande){
         icon = "⌁";
     }
     else if (problemeCategorie.value === "Logiciel"){
-        cssDesign = "bg-[#141215] text-[#587397] text-xl w-9 h-9 rounded-xl flex justify-center items-center";
+        cssDesign = "bg-[#F1EAF9] text-[#587397] text-xl w-9 h-9 rounded-xl flex justify-center items-center";
         icon = "▣";
     }
     else {
@@ -70,6 +79,30 @@ function addCards(demande){
     const lineSeperator = createElement("div", "w-full h-0.5 border-2 border-[#EDF0F3]");
     const cardBtns = createElement("div", "flex justify-end gap-6 mt-4 mb-2")
     const cardModifier = createElement("button", "text-[#617084] bg-transparent font-bold", "✎ Modifier");
+    cardModifier.addEventListener('click', function(){
+        const scrollToForm = document.getElementById('formulaire');
+        scrollToForm.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+        const newTitre = document.getElementById('probleme-titre');
+        const newCategorie = document.getElementById('categorie-choix');
+        const newPropriete = document.getElementById('propriete-choix');
+        const newDescription = document.getElementById('probleme-description');
+        const ajoutBtn = document.getElementById('ajout-btn');
+
+        ajoutBtn.textContent = "Modifier la demande";
+
+        if (newTitre.value)
+            cardProblemTitle.textContent = newTitre.textContent;
+        if (newCategorie.value)
+            cardCategorie.textContent = newCategorie.textContent;
+        if (newPropriete.value)
+            cardPropriete.textContent = newPropriete.textContent;
+        if (newDescription.value)
+            cardProblemDescription.textContent = newDescription.textContent;
+        return;
+    })
     const cardDeleter = createElement("button", "text-[#CC626A] bg-transparent font-bold", "♜ Supprimer");
     cardDeleter.addEventListener('click', function(){
         if (confirm("Voulez-vous vraiment supprimer cette demande ?")){
@@ -85,6 +118,8 @@ function addCards(demande){
     cardMainSection.append(cardBtns);
 
     card.append(cardHeader, cardMainSection);
+    demandeCard.id = cardIndexing()
+    console.log(demandeCard.id);
     return (card);    
 }
 
