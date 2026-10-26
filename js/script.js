@@ -149,11 +149,11 @@ formulaire.addEventListener('submit', function(event){
         formMessage.textContent = "Tous les champs sont obligatoires.";
         return;
     }
-    if (demandeEnModification !== null){
-        demandeEnModification.titre = titreProbleme.value.trim();
-        demandeEnModification.description = problemeDescription.value.trim();
-        demandeEnModification.categorie = selectCategorie.value;
-        demandeEnModification.propriete = selectPropriete.value;
+    if (modificationEnCours !== null){
+        modificationEnCours.titre = titreProbleme.value.trim();
+        modificationEnCours.description = problemeDescription.value.trim();
+        modificationEnCours.categorie = selectCategorie.value;
+        modificationEnCours.propriete = selectPropriete.value;
         formMessage.textContent = "Demande modifiée avec succès.";
     }
     else {
