@@ -9,6 +9,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-xl: 1.25rem;
@@ -317,9 +318,6 @@
   .bg-\[\#252F3E\] {
     background-color: #252F3E;
   }
-  .bg-\[\#141215\] {
-    background-color: #141215;
-  }
   .bg-\[\#E8F6EE\] {
     background-color: #E8F6EE;
   }
@@ -343,6 +341,12 @@
   }
   .bg-\[\#FFF5DF\] {
     background-color: #FFF5DF;
+  }
+  .bg-\[red\] {
+    background-color: red;
+  }
+  .bg-black {
+    background-color: var(--color-black);
   }
   .bg-gray-300 {
     background-color: var(--color-gray-300);
@@ -425,6 +429,12 @@
   }
   .text-\[\#CC626A\] {
     color: #CC626A;
+  }
+  .text-\[green\] {
+    color: green;
+  }
+  .text-\[red\] {
+    color: red;
   }
   .text-white {
     color: var(--color-white);
