@@ -7,7 +7,7 @@ const cardList = document.getElementById('cards');
 const formulaire = document.getElementById('formulaire');
 const formMessage = document.getElementById('form-message');
 const demandeTotal = document.getElementById('nombre-demande');
-let modificationEnCours = false;
+let modificationEnCours = null;
 
 let demandList = [
     { id: 1, titre: "Connexion Wi-Fi instable", categorie: "Réseau", propriete: "Haute", description: "Le réseau se déconnecte régulièrement." },
@@ -106,7 +106,7 @@ function createCard(demande){
         problemeDescription.value = demande.description;
         selectCategorie.value = demande.categorie;
         selectPropriete.value = demande.propriete;
-        modificationEnCours = true;
+        modificationEnCours = demande;
         ajoutBtn.textContent = "✎ Enregistrer les modifications";
         formulaire.scrollIntoView({ behavior: 'smooth', block: 'start' });
         titreProbleme.focus();
@@ -129,7 +129,7 @@ function createCard(demande){
 }
 
 function quitterModification(){
-    modificationEnCours = false;
+    modificationEnCours = null;
     ajoutBtn.textContent = "＋  Ajouter la demande";
     formulaire.reset();
 }
